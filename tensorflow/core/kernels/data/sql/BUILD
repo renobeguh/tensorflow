@@ -1,6 +1,6 @@
 # Description:
-# SQL library.
-#
+#   SQL library.
+
 package(
     default_visibility = ["//visibility:public"],
 )
@@ -10,7 +10,7 @@ licenses(["notice"])  # Apache 2.0
 filegroup(
     name = "all_files",
     srcs = glob(
-        ["**/*"],
+        include = ["**/*"],
         exclude = [
             "**/METADATA",
             "**/OWNERS",
@@ -33,7 +33,7 @@ cc_library(
     deps = [
         "//tensorflow/core:framework",
         "//tensorflow/core:lib",
+        "//tensorflow/core/kernels/data:dataset",
         "//tensorflow/core/lib/db:sqlite",
-        "@sqlite_archive//:sqlite",
     ],
 )
